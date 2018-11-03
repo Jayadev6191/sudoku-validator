@@ -1,4 +1,4 @@
-import { validateRows } from '../helpers/rowValidator';
+import { validateSubBoards } from '../helpers/subBoardValidator';
 
 var board = [
     [5, 3, 4, 6, 7, 8, 9, 1, 2],
@@ -12,10 +12,11 @@ var board = [
     [3, 4, 5, 2, 8, 6, 1, 7, 9]
 ];
 
-var invalid_row_board = [
-    [5, 3, 4, 6, 7, 8, 5, 1, 2],
+
+var invalid_subBoard = [
+    [5, 3, 4, 6, 7, 8, 9, 1, 2],
     [6, 7, 2, 1, 9, 5, 3, 4, 8],
-    [1, 9, 8, 3, 4, 2, 5, 6, 7],
+    [1, 9, 3, 8, 4, 2, 5, 6, 7],
     [8, 5, 9, 7, 6, 1, 4, 2, 3],
     [4, 2, 6, 8, 5, 3, 7, 9, 1],
     [7, 1, 3, 9, 2, 4, 8, 5, 6],
@@ -25,10 +26,10 @@ var invalid_row_board = [
 ];
 
 
-test('validate sudoku row', () => {
-    expect(validateRows(board)).toBeTruthy()
+test('validate sudoku subBoard', () => {
+    expect(validateSubBoards(board)).toBeTruthy()
 });
 
-test('validate sudoku invalid row', () => {
-    expect(validateRows(invalid_row_board)).toBeFalsy()
+test('validate sudoku invalid subBoard', () => {
+    expect(validateSubBoards(invalid_subBoard)).toBeFalsy()
 });
